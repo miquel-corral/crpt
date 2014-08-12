@@ -1,0 +1,112 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "crptapp/css/base.css" %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/forms.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/global.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/widgets.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/changelists.css" %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% block extrahead %}{{ block.super }}
+<!--
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/widgets.css" %}" />
+
+
+
+
+<link rel="stylesheet" type="text/css" href={% static "admin/css/base.css" %}/>
+<link rel="stylesheet" type="text/css" href={% static "admin/css/global.css" %}/>
+<link rel="stylesheet" type="text/css" href={% static "admin/css/widgets.css" %}/>
+-->
+<script type="text/javascript"
+    src="/admin/jsi18n/"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/core.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/jquery.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/jquery.init.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/actions.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/calendar.js' %}"></script>
+<script type="text/javascript"
+    src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script>
+
+<script type="text/javascript"
+    src="{% static 'crptapp/js/crptapp.js' %}"></script>
+
+{{ form.media }}
+{% endblock %}
+</script>
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+{% if form %}{{form.media}}{% endif %}
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+<!-- Container -->
+<div id="container">
+
+    {% if not is_popup %}
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        {% block branding %}{% endblock %}
+        </div>
+        {% if user.is_active and user.is_staff %}
+        <div id="user-tools">
+            {% trans 'Welcome,' %}
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+            {% block userlinks %}
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+            {% endblock %}
+        </div>
+        {% endif %}
+        {% block nav-global %}{% endblock %}
+    </div>
+    <!-- END Header -->
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+    <a href="{% url 'crptapp:index' %}">{% trans 'Home' %}</a>
+    {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+    {% endblock %}
+    {% endif %}
+
+    {% block messages %}
+        {% if messages %}
+        <ul class="messagelist">{% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+        {% endfor %}</ul>
+        {% endif %}
+    {% endblock messages %}
+
+    <!-- Content -->
+    <div id="content" class="{% block coltype %}colM{% endblock %}">
+        {% block pretitle %}{% endblock %}
+        {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+        {% block content %}
+        {% block object-tools %}{% endblock %}
+        {{ content }}
+        {% endblock %}
+        {% block sidebar %}{% endblock %}
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    {% block footer %}<div id="footer"></div>{% endblock %}
+</div>
+<!-- END Container -->
+<script language="javascript" type="text/javascript">
+setFocusFirstElemForm();
+</script>
+</body>
+</html>

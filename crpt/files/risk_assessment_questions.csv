@@ -1,0 +1,43 @@
+RA01,RA01QS001,RA01QS001Q001,RA01QS001Q001S01,How much is the likely frequency of occurrence or the following hazards?
+RA01,RA01QS002,RA01QS001Q002,RA01QS001Q002S01,How much will be the likely intensity of the following hazards?
+RA02,RA02QS001,RA02QS001Q001,RA02QS001Q001S01,What proportion of communication assets (e.g. telephone networks,etc.) is exposed to the following hazards? (Assume the 'most probable' case of each hazard. The same shall apply to all questions in this section.)
+RA02,RA02QS001,RA02QS001Q002,RA02QS001Q002S01,What proportion of communication user accounts (e.g. telephone, internet) is exposed to the following hazards?
+RA02,RA02QS002,RA02QS002Q001,RA02QS002Q001S01,What proportion of electrical energy assets is exposed to the following hazards?
+RA02,RA02QS002,RA02QS002Q002,RA02QS002Q002S01,What proportion of electrical energy user accounts is exposed to the following hazards?
+RA02,RA02QS003,RA02QS003Q001,RA02QS003Q001S01,What proportion of sanitation assets is exposed to the following hazards?
+RA02,RA02QS003,RA02QS003Q002,RA02QS003Q002S01,What proportion of sanitation user accounts is exposed to the following hazards?
+RA02,RA02QS004,RA02QS004Q001,RA02QS004Q001S01,What proportion of gas systems is exposed to the following hazards?
+RA02,RA02QS004,RA02QS004Q002,RA02QS004Q002S01,What proportion of gas user accounts is exposed to the following hazards?
+RA02,RA02QS005,RA02QS005Q001,RA02QS005Q001S01,What proportion of the major roads is exposed to the following hazards?
+RA02,RA02QS005,RA02QS005Q002,RA02QS005Q002S01,What proportion of carrying capacity of major roads in the city is exposed to the following hazards?
+RA02,RA02QS005,RA02QS005Q003,RA02QS005Q003S01,What proportion of carrying capacity of major roads to and from the city is exposed to the following hazards?
+RA02,RA02QS006,RA02QS006Q001,RA02QS006Q001S01,What proportion of the rail and metro lines in the city is exposed to the following hazards?
+RA02,RA02QS006,RA02QS006Q001,RA02QS006Q002S01,What proportion of carrying capacity of all rail and metro lines in the city is exposed to the following hazards?
+RA02,RA02QS006,RA02QS006Q001,RA02QS006Q003S01,What proportion of carrying capacity of all rail links to and from the city is exposed to the following hazards?
+RA02,RA02QS007,RA02QS007Q001,RA02QS007Q001S01,What proportion of carrying capacity of airline connections to and from the city is exposed to the following hazards?
+RA02,RA02QS008,RA02QS0071002,RA02QS008Q002S01,What proportion of carrying capacity of shipping connections to and from the city is exposed to the following hazards?
+RA02,RA02QS009,RA02QS009Q001,RA02QS009Q001S01,What proportion of prison systems is exposed to the following hazards?
+RA02,RA02QS009,RA02QS009Q002,RA02QS009Q002S02,What proportion of other critical law and order assets is exposed to the following hazards?
+RA02,RA02QS010,RA02QS010Q001,RA02QS010Q001S01,What proportion of the major food and distribution stations in the city and its surrounding area is exposed to the following hazards?
+RA02,RA02QS011,RA02QS011Q001,RA02QS011Q001S01,What proportion of major fuel distribution stations in the city is exposed to the following hazards?
+RA02,RA02QS012,RA02QS012Q001,RA02QS012Q001S01,What proportion of administrative operation center is exposed to the following hazards?
+RA02,RA02QS013,RA02QS013Q001,RA02QS013Q001S01,What proportion of applications and associated data critical to the basic infrastructure and government continuity is exposed to the following hazards? (Exclude the applications and data which are routinely backed up and processable at a remote site in case of emergency.)
+RA02,RA02QS014,RA02QS014Q001,RA02QS014Q001S01,What proportion of education structures is exposed to the following hazards?
+RA02,RA02QS014,RA02QS014Q002,RA02QS014Q002S02,What proportion of education data and associated applications is exposed to the following hazards? (Exclude the applications and data which are routinely backed up and processable at a remote site in case of emergency.)
+RA02,RA02QS015,RA02QS015Q001,RA02QS015Q001S01,What proportion of healthcare beds is exposed to the following hazards?
+RA02,RA02QS015,RA02QS015Q002,RA02QS015Q002S02,What proportion of patient and health system data and associated applications is exposed to the following hazards? (Exclude the applications and data which are routinely backed up and processable at a remote site in case of emergency.)
+RA03,RA03QS001,RA03QS001Q001,RA03QS001Q001S01,To what degree of hazard intensity can the communication services in the city remain functional? Answer for each hazard type. (The same shall apply to all questions in this section.)
+RA03,RA03QS002,RA03QS002Q001,RA03QS002Q001S01,To what degree of hazard intensity can the electricity provision in the city remain functional?
+RA03,RA03QS003,RA03QS003Q001,RA03QS003Q001S01,To what degree of hazard intensity can the water and sanitation service in the city remain functional?
+RA03,RA03QS004,RA03QS004Q001,RA03QS004Q001S01,To what degree of hazard intensity can the gas provision in the city remain functional?
+RA03,RA03QS005,RA03QS005Q001,RA03QS005Q001S01,To what degree of hazard intensity can the major roads in the city remain functional?
+RA03,RA03QS006,RA03QS006Q001,RA03QS006Q001S01,To what degree of hazard intensity can the major rail lines in the city remain functional?
+RA03,RA03QS007,RA03QS007Q001,RA03QS007Q001S01,To what degree of hazard intensity can the airline connections to and from the city remain functional?
+RA03,RA03QS008,RA03QS008Q001,RA03QS008Q001S01,To what degree of hazard intensity can the shipping connections to and from the city remain functional?
+RA03,RA03QS009,RA03QS009Q001,RA03QS009Q001S01,To what degree of hazard intensity can the law and order services in the city remain functional?
+RA03,RA03QS010,RA03QS010Q001,RA03QS010Q001S01,To what degree of hazard intensity can the major food distribution stations in the city remain functional?
+RA03,RA03QS011,RA03QS011Q001,RA03QS011Q001S01,To what degree of hazard intensity can the major fuel distribution stations in the city remain functional?
+RA03,RA03QS012,RA03QS012Q001,RA03QS012Q001S01,To what degree of hazard intensity can the administrative operations in the city remain functional?
+RA03,RA03QS013,RA03QS013Q001,RA03QS013Q001S01,To what degree of hazard intensity can the education structures in the city remain functional?
+RA03,RA03QS014,RA03QS014Q001,RA03QS014Q001S01,To what degree of hazard intensity can the primary healthcare service in the city remain functional?
+RA03,RA03QS014,RA03QS014Q002,RA03QS014Q002S02,To what degree of hazard intensity can the emergency healthcare service in the city remain functional?

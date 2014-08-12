@@ -1,0 +1,48 @@
+CA02,CA02SS01,CA02SS01QS014,CA02SS01QS014Q001,CA02SS01QS014Q001S01,YNS,Does the city have applicable building codes to all physical assets?,0.03
+CA02,CA02SS01,CA02SS01QS014,CA02SS01QS014Q002,CA02SS01QS014Q002S01,YNH,Have the building codes been specifically evaluated in terms of ability to deal with 'most probable' and 'most severe' scenarios for the following hazards?,0.03
+CA02,CA02SS01,CA02SS01QS014,CA02SS01QS014Q003,CA02SS01QS014Q003S01,YNS,Are the building codes applied or under an on-going application?,0.03
+CA02,CA02SS01,CA02SS01QS014,CA02SS01QS014Q004,CA02SS01QS014Q004S01,YNS,Are you updating the building codes?,0.03
+CA05,CA05SS01,CA05SS01QS014,CA05SS01QS014Q004,CA05SS01QS014Q004S01,YNS,Are you updating the building codes?,0.2
+CA02,CA02SS01,CA02SS01QS014,CA02SS01QS014Q005,CA02SS01QS014Q005S01,EFS,What is the percentage of compliance of building codes?,0.03
+CA02,CA02SS01,CA02SS01QS015,CA02SS01QS015Q001,CA02SS01QS015Q001S01,YNH,Does the city have a single organization of co-ordination of all pre-event planning and preparation for the following hazards?,0,07
+CA02,CA02SS01,CA02SS01QS015,CA02SS01QS015Q002,CA02SS01QS015Q002S01,YNH,Does the city have a single head for co-ordination of all pre-event planning and preparation for the following hazards?,0.07
+CA02,CA02SS01,CA02SS01QS016,CA02SS01QS016Q001,CA02SS01QS016Q001S01,YNH,Does the city have a single organization of co-ordination of all event response activities for the following hazards?,0.07
+CA02,CA02SS01,CA02SS01QS016,CA02SS01QS016Q002,CA02SS01QS016Q002S02,YNH,Does the city have a single head for co-ordination of all event response activities for the following hazards?,0.07
+CA02,CA02SS01,CA02SS01QS017,CA02SS01QS017Q001,CA02SS01QS017Q001S01,YNH,Are pre and post-event roles and physical contributions regarding the following hazards clearly identified by each major actor in both public and non-public sectors?,0.03
+CA02,CA02SS01,CA02SS01QS017,CA02SS01QS017Q002,CA02SS01QS017Q002S01,YNH,Does the municipality have organizational structure and role definitions to achieve the required coordination with the other major actors? Answer for each hazard type., 0.03
+CA02,CA02SS01,CA02SS01QS018,CA02SS01QS018Q001,CA02SS01QS018Q001S01,YNH,Engagement of vulnerable segments of the population* in disaster risk management of the following hazards?!!*vulnerable segments of the population: those in areas of high poverty; elderly; physically or mentally sick; children (and organizations working with them) and non-native language speakers,0.03
+CA02,CA02SS04,CA02SS04QS018,CA02SS04QS018Q001,CA02SS04QS018Q001S01,YNH,Engagement of vulnerable segments of the population* in disaster risk management of the following hazards?!!*vulnerable segments of the population: those in areas of high poverty; elderly; physically or mentally sick; children (and organizations working with them) and non-native language speakers,0.17
+CA02,CA02SS02,CA02SS02QS019,CA02SS02QS019Q001,CA02SS02QS019Q001S03,YNS,Are there capital funds (from multiple sources - as applicable) for long run engineering and other works required to meet any of the disaster scenarios?,0.13
+CA02,CA02SS02,CA02SS02QS020,CA02SS02QS020Q001,CA02SS02QS020Q001S01,YNH,Are there separately delineated* budget line item(s) and commitment to cope with the following hazards?!!* Separately delineated: protected from being taken away to be used for other purposes,0.13
+CA02,CA02SS02,CA02SS02QS021,CA02SS02QS021Q001,CA02SS02QS021Q001S01,YNH,Is there contingency fund for post disaster recovery (may be referred to as a rainy-day fund) for the following hazards?,0.13
+CA02,CA02SS02,CA02SS02QS022,CA02SS02QS022Q001,CA02SS02QS022Q001S01,YNH,Is the contingency fund mentioned in the last question protected (ring-fenced) from being taken away to be used for other purposes? Answer about the contingency fund for each hazard type:,0.13
+CA02,CA02SS02,CA02SS02QS023,CA02SS02QS023Q001,CA02SS02QS023Q001S01,YNH,Does incentives and/or financing exist to address all known issues regarding the following hazards?,0.13
+CA02,CA02SS02,CA02SS02QS024,CA02SS02QS024Q001,CA02SS02QS024Q001S01,YNH,Are there incentives and/or financing for business organizations to improve resilience (e.g. disaster plans or premises) against the following hazards?,0.13
+CA02,CA02SS02,CA02SS02QS025,CA02SS02QS025Q001,CA02SS02QS025Q001S01,YNH,Are there incentives and/or financing for non profit organizations to improve resilience (e.g. disaster plans or premises) against the following hazards?,0.13
+CA02,CA02SS03,CA02SS03QS026,CA02SS03QS026Q001,CA02SS03QS026Q001S01,YNH,Does the city have a database of disaster records and geographical distribution of vulnerable areas concerning the following hazards?,0.06
+CA02,CA02SS03,CA02SS03QS026,CA02SS03QS026Q002,CA02SS03QS026Q002S01,YNH,Is the database accessible for everyone?,0.06
+CA02,CA02SS03,CA02SS03QS026,CA02SS03QS026Q003,CA02SS03QS026Q003S01,YNH,Is the database updated on a regular basis?,0.06
+CA05,CA05SS01,CA05SS01QS026,CA05SS01QS026Q003,CA05SS01QS026Q003S01,YNH,Is the database updated on a regular basis?,0.20
+CA02,CA02SS03,CA02SS03QS027,CA02SS03QS027Q001,CA02SS03QS027Q001S01,YNH,Does the city have a database on disaster scenarios or key responses and preparation steps concerning the following hazards?,0.06
+CA02,CA02SS03,CA02SS03QS027,CA02SS03QS027Q002,CA02SS03QS027Q002S01,YNH,Is the database accessible for everyone?,0.06
+CA02,CA02SS03,CA02SS03QS027,CA02SS03QS027Q003,CA02SS03QS027Q003S01,YNH,Can everyone contribute to make or update the database?,0.06
+CA02,CA02SS03,CA02SS03QS027,CA02SS03QS027Q004,CA02SS03QS027Q004S01,YNH,Is the database updated on a regular basis?,0.06
+CA05,CA05SS01,CA05SS01QS027,CA05SS01QS027Q004,CA05SS01QS027Q004S02,YNH,Is the database updated on a regular basis?,0.20
+CA02,CA02SS03,CA02SS03QS028,CA02SS03QS028Q001,CA02SS03QS028Q001S01,YNH,Are the 'most probable' or the 'most severe' disaster scenarios for the following hazards known to the population?,0.06
+CA02,CA02SS03,CA02SS03QS029,CA02SS03QS029Q001,CA02SS03QS029Q001S01,YNH,Are the key responses to the following hazards known to the population?,0.06
+CA02,CA02SS03,CA02SS03QS030,CA02SS03QS030Q001,CA02SS03QS030Q001S01,YNH,Are the preparation steps for the following hazards known to the population?,0,06
+CA02,CA02SS03,CA02SS03QS031,CA02SS03QS031Q001,CA02SS03QS031Q001S01,YNH,Are there public relations and/or education campaigns coordinated by the government for the following hazards?,0.06
+CA02,CA02SS01,CA02SS01QS031,CA02SS01QS031Q001,CA02SS01QS031Q001S01,YNH,Are there public relations and/or education campaigns coordinated by the government for the following hazards?,0.03
+CA02,CA02SS03,CA02SS03QS031,CA02SS03QS031Q002,CA02SS03QS031Q002S01,YNH,Are there public relations and/or education campaigns coordinated by a non-governmental body (e.g. private sector/civic sector) for the following hazards?,0.06
+CA02,CA02SS01,CA02SS01QS031,CA02SS01QS031Q002,CA02SS01QS031Q002S01,YNH,Are there public relations and/or education campaigns coordinated by a non-governmental body (e.g. private sector/civic sector) for the following hazards?,0.03
+CA02,CA02SS03,CA02SS03QS032,CA02SS03QS032Q001,CA02SS03QS032Q001S01,YNH,Is training offered and available to all population* concerning the following hazards?!* all population including those who can't use the common language or have handicaps,0.06
+CA02,CA02SS03,CA02SS03QS033,CA02SS03QS033Q001,CA02SS03QS033Q001S01,EFH,What proportion of inhabitants was trained in the last year concerning the following hazards?,0.06
+CA02,CA02SS03,CA02SS03QS034,CA02SS03QS034Q001,CA02SS03QS034Q001S01,YNH,Is education offered and available to all population* concerning the following hazards?!* all population including those who can't use the common language or have handicaps,0.06
+CA02,CA02SS03,CA02SS03QS035,CA02SS03QS035Q001,CA02SS03QS035Q001S01,EFH,What proportion of inhabitants was educated in last year concerning the following hazards?,0.06
+CA02,CA02SS04,CA02SS04QS036,CA02SS04QS036Q001,CA02SS04QS036Q001S01,YNH,Is there at least one non-governmental coordinating body for pre and post event response in your City area for the following hazards?,0.17
+CA02,CA02SS04,CA02SS04QS036,CA02SS04QS036Q002,CA02SS04QS036Q002S01,MFH,Average meeting frequency of non-government coordinating body for pre and post event response for the following hazards,0.17
+CA02,CA02SS04,CA02SS04QS036,CA02SS04QS036Q003,CA02SS04QS036Q003S01,MAH,Average meeting attendance of non-government coordinating body for pre and post event response for the following hazards,0.17
+CA02,CA02SS03,CA02SS03QS036,CA02SS03QS036Q004,CA02SS03QS036Q003S01,YNH,Is it suppported by training the non-government coordinating body for pre and post event response for the following hazards,0.06
+CA02,CA02SS04,CA02SS04QS036,CA02SS04QS036Q003,CA02SS04QS036Q003S05,YNH,Is it suppported by training the non-government coordinating body for pre and post event response for the following hazards,0.17
+CA02,CA02SS04,CA02SS04QS036,CA02SS04QS036Q004,CA02SS04QS036Q004S01,YNH,clear differentiation of roles between grass-roots organization and other entities such as city government?,0.17
+CA02,CA02SS01,CA02SS01QS036,CA02SS01QS036Q004,CA02SS01QS036Q004S01,YNH,clear differentiation of roles between grass-roots organization and other entities such as city government?,0.03

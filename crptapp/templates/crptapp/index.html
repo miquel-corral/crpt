@@ -1,0 +1,153 @@
+{% extends "crptapp/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+
+
+
+         <caption>
+            <div class="section" style="float:left;">TEST CAGenericStatement:</div>
+            <div style="float:right;padding-right:18px;"><a href="{% url 'crptapp:ca_generic_statement_detail' statement_id=1 %}" class="addlinktoplist" style="color:white;">{% trans 'GO' %}</a></div>
+        </caption>
+        <br>
+
+{% if assessments %}
+    <div class="module">
+        <table>
+        <caption>
+            <div class="section" style="float:left;">Assessments for user:  {{ user }}</div>
+            <div style="float:right;padding-right:18px;"><a href="{% url 'crptapp:assessment_detail' assessment_id=0 assessment_name='New Assessment' %}" class="addlinktoplist" style="color:white;">{% trans 'Add' %}</a></div>
+        </caption>
+
+
+        {% for assessment in assessments %}
+            <tr class="assessment-{{ assessment.object_name|lower }}">
+               <!-- <th scope="row"><a href="{% url 'crptapp:assessment_detail' assessment_id=assessment.id assessment_name=assessment.name %}">{{ assessment.name }}</a></th> -->
+               <th scope="row"><a href="" onClick="toggleClassElements('{{ assessment.name }}');return false;">{{ assessment.name }}</a></th>
+
+                <td>&nbsp;</td>
+                <td><a href="{% url 'crptapp:assessment_detail' assessment_id=assessment.id assessment_name=assessment.name %}" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+            </tr>
+            {% for ra_section in ra_sections %}
+                <!-- <tr  style="display:none"> -->
+                <tr class="{{ assessment.name }}" style="display:none;">
+                <th scope="row" class="ra_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'crptapp:ra_section_questions' ra_section_id=ra_section.id assessment_id=assessment.id  %}">{{ ra_section.name }}</a></th>
+                <td>&nbsp;</td>
+                <td><a href="{% url 'crptapp:ra_section_questions' ra_section_id=ra_section.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+                </tr>
+            {% endfor %}
+            {% for ca_section in ca_sections %}
+                <!-- <tr  style="display:none"> -->
+                <tr class="{{ assessment.name }}" style="display:none;">
+                <th scope="row" class="ca_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="" onclick="toggleClassElements('{{ assessment.name }}-{{ ca_section.name }}');return false;">{{ ca_section.name }}</a></th>
+                <td>&nbsp;</td>
+                <td>&nbsp;</a></td>
+                <td>&nbsp;</td>
+                </tr>
+                    {% for ca_subsection in ca_section.capacityassessmentsubsection_set.all %}
+                    <tr class="{{ assessment.name }} {{ assessment.name }}-{{ ca_section.name }}" style="display:none;" >
+                    <th scope="row" class="ca_subsection">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}">{{ ca_subsection.name }}</a></th>
+                    <td>&nbsp;</td>
+                    <td><a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    {% endfor %}
+
+            {% endfor %}
+
+        {% endfor %}
+        </table>
+        </div>
+
+
+    {% comment %}
+    {% for app in app_list %}
+        <div class="app-{{ app.app_label }} module">
+        <table>
+        <caption>
+            <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Assessments in the {{ name }} application{% endblocktrans %}">
+                {% blocktrans with name=app.name %}{{ name }}{% endblocktrans %}
+            </a>
+        </caption>
+
+
+
+
+        {% comment %}
+        {% for model in app.models %}
+            <tr class="model-{{ model.object_name|lower }}">
+            {% if model.admin_url %}
+                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+            {% else %}
+                <th scope="row">{{ model.name }}</th>
+            {% endif %}
+
+            {% if model.add_url %}
+                <td><a href="{{ model.add_url }}" class="addlink">{% trans 'Add' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+
+            {% if model.admin_url %}
+                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+    {% endfor %}
+    {% endcomment %}
+{% else %}
+    <p>{% trans "You have no assessments created." %}</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+{% comment %}
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>{% trans 'Recent Actions' %}</h2>
+        <h3>{% trans 'My Actions' %}</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>{% trans 'None available' %}</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">
+                {% if entry.is_deletion or not entry.get_admin_url %}
+                    {{ entry.object_repr }}
+                {% else %}
+                    <a href="{{ entry.get_admin_url }}">{{ entry.object_repr }}</a>
+                {% endif %}
+                <br/>
+                {% if entry.content_type %}
+                    <span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span>
+                {% else %}
+                    <span class="mini quiet">{% trans 'Unknown content' %}</span>
+                {% endif %}
+            </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+</div>
+{% endcomment %}
+{% endblock %}

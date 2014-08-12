@@ -1,0 +1,26 @@
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q001,CA04SS01QS041Q001S001,YNS,Does the city have an emergency response plan for disasters in general?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S001,YNS,Are they covering command and control - coordination with other agencies and cities; roles; responsibilities?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S002,YNS,Are they covering evacuations (including hospitals; jails; etc.)?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S003,YNS,Are they covering communication systems?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S004,YNS,Are they covering critical asset management (including system of systems interactions)?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S005,YNS,Are they covering first response?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S006,YNS,Are they covering law and order response?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S007,YNS,Are they covering public information?,0.03
+CA04,CA04SS01,CA04SS01QS041,CA04SS01QS041Q002,CA04SS01QS041Q002S008,YNS,Are they covering incorporation of contributions from citizen/grass roots organization?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q001,CA04SS01QS056Q001S001,YNS,Does the city have a post event recovery plan for All Hazards?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q002,CA04SS01QS056Q002S001,YNS,Does it address economic needs?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q002,CA04SS01QS056Q002S002,YNS,Does it address infrastructure needs?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q002,CA04SS01QS056Q002S003,YNS,Does it address community needs?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S001,YNS,Does it detailed interim arrangements for damaged facilities and homes anticipated from "most probable" and "most severe" scenarios (e.g shelter)?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S002,YNS,Does it detailed triage policies for repairs?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S003,YNS,Does it detailed counseling and personal support arrangements?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S004,YNS,Does it detailed community support arrangements?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S005,YNS,Does it detailed economic “re-boot” arrangements – interim tax relief or incentives; etc?,0.03
+CA04,CA04SS01,CA04SS01QS056,CA04SS01QS056Q003,CA04SS01QS056Q003S006,YNS,Does it detailed Improvements to city layout and operations sought as rebuilding takes place; that will reduce future risk?,0.03
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S001,YNS,Is there an early warning system set up for this hazard?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S002,YNS,Does it allow enough time to react?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S003,YNS,Is it reliable (few false positives)?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S004,EFS,What is the percentage of inhabitants covered by the EWS?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S005,YNS,Is there an early warning centre established and adequately staffed at all time?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S006,YNS,Is it well resourced (power back ups; equipment redundancy etc)?,0.02
+CA04,CA04SS01,CA04SS01QS071,CA04SS01QS071Q001,CA04SS01QS071Q001S007,YNS,Is the system maintained and tested regularly?,0.02

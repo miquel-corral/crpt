@@ -1,0 +1,15 @@
+CA03,CA03SS01,CA03SS01QS037,CA03SS01QS037Q001,CA03SS01QS037Q001S001,YNH,Does the city have protective infrastructure or in process of construction? Answer for each hazard type:,0.00
+CA03,CA03SS01,CA03SS01QS037,CA03SS01QS037Q002,CA03SS01QS037Q002S001,YNH,Are the protective infrastructure for the following hazards designed to deal with the "most probable" or the "most severe" scenarios with minimal economic impacts?,0.00
+CA03,CA03SS01,CA03SS01QS037,CA03SS01QS037Q003,CA03SS01QS037Q003S001,YNH,Are the protective infrastructure for the following hazards designed to deal with the "most probable" or the "most severe" scenarios with minimal humanitarian impact?,0.00
+CA03,CA03SS01,CA03SS01QS037,CA03SS01QS037Q004,CA03SS01QS037Q004S001,YNH,Are the protective infrastructure for the following hazards monitored and maintained on a regular basis?,0.00
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q001,CA03SS01QS038Q001S001,YNS,Some ecosystems (e.g. forest; wetlands; etc.) play an important role to mitigate/respond to/ recover from disasters. Are such ecosystem services identified?,0.17
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q002,CA03SS01QS038Q002S001,YNS,Are the ecosystem services monitored periodically on a defined set of key health/performance indicators?,0.17
+CA05,CA05SS01,CA05SS01QS038,CA05SS01QS038Q002,CA05SS01QS038Q002S001,YNS,Are the ecosystem services monitored periodically on a defined set of key health/performance indicators?,0.20
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q003,CA03SS01QS038Q003S001,YNS,Are there policies or land use liable to weaken ecosystem services?,0.17
+CA02,CA02SS01,CA02SS01QS038,CA02SS01QS038Q003,CA02SS01QS038Q003S001,YNS,Are there policies or land use liable to weaken ecosystem services?,0.03
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q004,CA03SS01QS038Q004S001,YNS,Does the city have a plan to manage the ecosystems?,0.17
+CA02,CA02SS01,CA02SS01QS038,CA02SS01QS038Q004,CA02SS01QS038Q004S001,YNS,Does the city have a plan to manage the ecosystems?,0.03
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q005,CA03SS01QS038Q005S001,YNS,Is the public sector involved in the protection; restoration and sustainable management of ecosystem services?,0.17
+CA02,CA02SS01,CA02SS01QS038,CA02SS01QS038Q005,CA02SS01QS038Q005S001,YNS,Is the public sector involved in the protection; restoration and sustainable management of ecosystem services?,0.03
+CA03,CA03SS01,CA03SS01QS038,CA03SS01QS038Q006,CA03SS01QS038Q006S001,YNS,Are the private and civil sectors involved in the protection; restoration and sustainable management of ecosystem services?,0.17
+CA02,CA02SS01,CA02SS01QS038,CA02SS01QS038Q006,CA02SS01QS038Q006S001,YNS,Are the private and civil sectors involved in the protection; restoration and sustainable management of ecosystem services?,0.03

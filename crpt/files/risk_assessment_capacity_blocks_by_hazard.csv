@@ -1,0 +1,14 @@
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q001,CA01SS01QS001Q001S001,YNS,Does the city have risk assessment systems for the hazard:, 1
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S001,YNS,Do this systems identify the exposure of neighborhoods and economic zones?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S002,YNS,Do this systems identify identify the vulnerability of neighborhoods and economic zones?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S003,YNS,Do this systems include estimates of recovery time given estimated benefit of mitigation measures if any?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S004,YNS,Do this systems include full identification of population economic activity and critical assets at risk in each and identification of alternatives in each case?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S005,YNS,Do this systems include benefit from and status of ecosystem services where applicable?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S006,YNS,Do this systems include exposure of critical infrastructure items with and without alternatives?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S007,YNS,Do this systems include vulnerability of critical infrastructure items with and without alternatives?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S008,YNS,Do this systems include a review process by a 3rd party who has confirmed belief that assessment adequately captures likely exposures and vulnerabilities?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S009,YNS,Do this systems include identification of critical assets along with cascading impacts from loss of each asset on other critical assets and on the population as a whole*?!*e.g. loss of energy substation leads to loss of a water treatment plant which leads in turn to the loss of a hospital,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S010,YNS,Do this systems include the positive and negative impacts of climate change if there is any?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q002,CA01SS01QS001Q002S011,YNS,Do this systems include the positive and negative impacts of other uncertain long-term socio-environmental change if there is any?,0.079
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q003,CA01SS01QS001Q003S001,YNS,Is the risk assessment updated every 18 months or less?,0.07
+CA01,CA01SS01,CA01SS01QS001,CA01SS01QS001Q003,CA01SS01QS001Q003S002,YNS,Are all relevant agencies brought in to update the risk assessment?,0.07

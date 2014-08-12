@@ -1,0 +1,100 @@
+{% extends "crptapp/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% load admin_list %}
+
+{% block content %}
+<div id="content-main">
+
+{% if questions %}
+    <div class="module">
+        <table>
+         <caption>
+            <div class="section" style="float:left;">Risk Assessment Questions for user:  {{ user }}</div>
+            <div style="float:right;padding-right:18px;"><a href="" class="addlinktoplist" style="color:white;">{% trans 'Add' %}</a></div>
+        </caption>
+
+
+        {% for question in questions %}
+            <tr class="assessment-{{ assessment.object_name|lower }}">
+
+               <!-- <th scope="row"><a href="" onClick="toggleClassElements('{{ assessment.name }}');return false;">{{ question.name }}</a></th> -->
+                <th scope="row"><a href="{% url 'crptapp:ra_section_question_statements' ra_question_id=question.id ra_section_id=question.ra_questionset.ra_section.id assessment_id=assessment.id  %}">{{ question.description }}</a></th>
+
+
+                <td>&nbsp;</td>
+                <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+            </tr>
+            <!--
+            {% for ra_section in ra_sections %}
+                <tr class="{{ assessment.name }}" >
+                <th scope="row" class="ra_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="">{{ ra_section.name }}</a></th>
+                <td>&nbsp;</td>
+                <td><a href="{% url 'crptapp:ra_section_questions' ra_section_id=ra_section.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+                </tr>
+            {% endfor %}
+
+            {% for ca_section in ca_sections %}
+                <tr class="{{ assessment.name }}" >
+                <th scope="row" class="ca_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="" onclick="toggleClassElements('{{ assessment.name }}-{{ ca_section.name }}');return false;">{{ ca_section.name }}</a></th>
+                <td>&nbsp;</td>
+                <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+                </tr>
+                    {% for ca_subsection in ca_section.capacityassessmentsubsection_set.all %}
+                    <tr class="{{ assessment.name }} {{ assessment.name }}-{{ ca_section.name }}" >
+                    <th scope="row" class="ca_subsection">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}">{{ ca_subsection.name }}</a></th>
+                    <td>&nbsp;</td>
+                    <td><a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td>&nbsp;</td>
+                    </tr>
+                    {% endfor %}
+
+            {% endfor %}
+            -->
+
+        {% endfor %}
+        </table>
+        </div>
+<!-- <div class="submit-row" style="text-align:right;"> -->
+<p class="paginator">
+
+        {% if questions.has_previous %}
+        <span class="">
+            <a href="?page={{ questions.previous_page_number }}"> Previous </a>
+        </span>
+        {% endif %}
+
+        <span class="this-page">
+            Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+        </span>
+
+        {% if questions.has_next %}
+        <span class="">
+            <a href="?page={{ questions.next_page_number }}"> Next </a>
+        </span>
+        {% endif %}
+    </span>
+</p>
+<!-- </div> -->
+
+{% else %}
+    <p>{% trans "You have no questions created." %}</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

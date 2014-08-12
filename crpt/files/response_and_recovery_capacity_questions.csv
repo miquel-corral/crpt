@@ -1,0 +1,46 @@
+CA04,CA04SS01,CA04SS01QS039,CA04SS01QS039Q001,CA04SS01QS039Q001S001,YNH,Does the city have event management plans formulated to address the "most probable" and "most severe" disaster scenarios of the following hazards?,0.06
+CA02,CA02SS01,CA02SS01QS039,CA02SS01QS039Q001,CA02SS01QS039Q001S001,YNH,Does the city have event management plans formulated to address the "most probable" and "most severe" disaster scenarios of the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS039,CA04SS01QS039Q002,CA04SS01QS039Q002S001,YNH,Are the event management plans shared and signed off by all relevant actors?,0.06
+CA02,CA02SS01,CA02SS01QS039,CA02SS01QS039Q002,CA02SS01QS039Q002S001,YNH,Are the event management plans shared and signed off by all relevant actors?,0.03
+CA04,CA04SS01,CA04SS01QS039,CA04SS01QS039Q003,CA04SS01QS039Q003S001,YNH,Has the event management plans been tested as practice drills?,0.03
+CA04,CA04SS01,CA04SS01QS039,CA04SS01QS039Q004,CA04SS01QS039Q004S001,YNH,Has the event management plans been tested in real emergencies?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q001,CA04SS01QS040Q001S001,YNS,Does the city have an emergency response plan for disasters in general?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S001,YNS,Are they covering command and control - coordination with other agencies and cities; roles; responsibilities?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S002,YNS,Are they covering evacuations (including hospitals; jails; etc.)?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S003,YNS,Are they covering communication systems?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S004,YNS,Are they covering critical asset management (including system of systems interactions)?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S005,YNS,Are they covering first response?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S006,YNS,Are they covering law and order response?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S007,YNS,Are they covering public information?,0.03
+CA04,CA04SS01,CA04SS01QS040,CA04SS01QS040Q002,CA04SS01QS040Q002S008,YNS,Are they covering incorporation of contributions from citizen/grass roots organization?,0.03
+CA04,CA04SS01,CA04SS01QS053,CA04SS01QS053Q001,CA04SS01QS053Q001S001,YNH,Does the city have emergency operation centres for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS053,CA04SS01QS053Q002,CA04SS01QS053Q002S001,YNH,Are all relevant actors coordinated to operate the emergency operation centres?,0.03
+CA04,CA04SS01,CA04SS01QS054,CA04SS01QS054Q001,CA04SS01QS054Q001S001,YNS,Does the city have evacuation centres?,0.03
+CA04,CA04SS01,CA04SS01QS054,CA04SS01QS054Q002,CA04SS01QS054Q002S002,YNH,Does the evacuation centres expect the following hazards?,0.02
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q001,CA04SS01QS055Q001S001,YNS,Does the city have a post event recovery plan for All Hazards?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q002,CA04SS01QS055Q002S001,YNS,Does it address economic needs?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q002,CA04SS01QS055Q002S002,YNS,Does it address infrastructure needs?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q002,CA04SS01QS055Q002S003,YNS,Does it address community needs?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S001,YNS,Does it detailed interim arrangements for damaged facilities and homes anticipated from "most probable" and "most severe" scenarios (e.g shelter)?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S002,YNS,Does it detailed triage policies for repairs?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S003,YNS,Does it detailed counseling and personal support arrangements?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S004,YNS,Does it detailed community support arrangements?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S005,YNS,Does it detailed economic “re-boot” arrangements – interim tax relief or incentives; etc?,0.03
+CA04,CA04SS01,CA04SS01QS055,CA04SS01QS055Q003,CA04SS01QS055Q003S006,YNS,Does it detailed Improvements to city layout and operations sought as rebuilding takes place; that will reduce future risk?,0.03
+CA04,CA04SS01,CA04SS01QS069,CA04SS01QS069Q001,CA04SS01QS069Q001S001,YNH,Are post event organization arrangements prepared for the following hazards?,0.03
+CA02,CA02SS01,CA02SS01QS069,CA02SS01QS069Q001,CA02SS01QS069Q001S001,YNH,Are post event organization arrangements prepared for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS070,CA04SS01QS070Q001,CA04SS01QS070Q001S001,YNH,Does the city have a post event financial arrangements to deal with fiancial aid from external sources and disbursements concerning the following hazards?,0.03
+CA02,CA02SS02,CA02SS02QS070,CA02SS02QS070Q001,CA02SS02QS070Q001S001,YNH,Does the city have a post event financial arrangements to deal with fiancial aid from external sources and disbursements concerning the following hazards?,0.13
+CA04,CA04SS01,CA04SS01QS072,CA04SS01QS072Q001,CA04SS01QS072Q001S001,YNH,Does the local government estimate the shortfall in staff/responders per defined needs* – potentially from multiple sources for the following hazards?!*fire; ambulance; healthcare; neighborhood support etc.,0.03
+CA04,CA04SS01,CA04SS01QS072,CA04SS01QS072Q002,CA04SS01QS072Q002S001,YNH,Has the local government signed Memorandums of understanding (MOUs) on cooperation in case of shortfall in staff/responders with private/civic sectors for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS072,CA04SS01QS072Q003,CA04SS01QS072Q003S001,YNH,Are the staff/responders needs for the "most probable" and the "most severe" disaster scenarios estimated for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS073,CA04SS01QS073Q001,CA04SS01QS073Q001S001,YNS,Does the city have sufficient back-up or para-professional capacity* to maintain law and order under any of the disaster scenarios?!*This capacity may come from other agencies such as the Army or civil defense force,0.03
+CA04,CA04SS01,CA04SS01QS073,CA04SS01QS073Q002,CA04SS01QS073Q002S001,YNS,Can the back-up or para-professional capacity support first responders duties?,0.03
+CA04,CA04SS01,CA04SS01QS074,CA04SS01QS074Q001,CA04SS01QS074Q001S001,YNH,Does the local government estimate the shortfall in equipment* per defined needs – potentially from multiple sources for the following hazards?!*fire trucks; ambulances; cranes; medical supplies etc.,0.03
+CA04,CA04SS01,CA04SS01QS074,CA04SS01QS074Q002,CA04SS01QS074Q002S001,YNH,Has the local government signed Memorandums of understanding (MOUs) on cooperation in case of shortfall in available equipment with private/civic sectors for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS074,CA04SS01QS074Q003,CA04SS01QS074Q003S001,YNH,Are the equipment* needs for the "most probable" and the "most severe" disaster scenarios estimated for the following hazards?!*fire trucks; ambulances; cranes; medical supplies etc.,0.03
+CA04,CA04SS01,CA04SS01QS075,CA04SS01QS075Q001,CA04SS01QS075Q001S001,YNH,Does the local government estimate the shortfall in supplies per defined needs – potentially from multiple sources for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS075,CA04SS01QS075Q002,CA04SS01QS075Q002S001,YNH,Has the local government signed MOUs on cooperation in case of shortfall in available supplies with private/civic sectors for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS075,CA04SS01QS075Q003,CA04SS01QS075Q003S001,YNH,Are the supply needs for the "most probable" and the "most severe" disaster scenarios estimated for the following hazards?,0.03
+CA04,CA04SS01,CA04SS01QS076,CA04SS01QS076Q001,CA04SS01QS076Q001S001,YNS,Is there estimation of the level of compatibility from different key systems (e.g. diameter of fire hoses; type of consent; electricity transmission standards etc.) within the public sector?,0.03
+CA04,CA04SS01,CA04SS01QS076,CA04SS01QS076Q001,CA04SS01QS076Q001S002,YNS,Is there estimation of the level of compatibility from different key systems (e.g. diameter of fire hoses; type of consent; electricity transmission standards etc.) within the private sector?,0.03
