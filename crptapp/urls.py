@@ -13,7 +13,6 @@ urlpatterns = patterns('',
 
     url(r'^risk_assessment/(?P<ra_question_id>\d+)/(?P<ra_section_id>\d+)/(?P<assessment_id>\d+)/$', views.getRAQuestionStatements , name='ra_section_question_statements'),
 
-
     url(r'^(?P<statement_id>\d+)/$', views.getCAGenericStatementForm , name='ca_generic_statement_detail'),
 
     (r'^admin/jsi18n/', 'django.views.i18n.javascript_catalog'),
