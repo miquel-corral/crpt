@@ -8,5 +8,5 @@
 /.idea
 
 # exclude .RHistory
-.RHistory
+.Rhistory
 
