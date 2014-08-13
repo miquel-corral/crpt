@@ -12,10 +12,10 @@ RA02,RA02QS005,RA02QS005Q001,RA02QS005Q001S01,What proportion of the major roads
 RA02,RA02QS005,RA02QS005Q002,RA02QS005Q002S01,What proportion of carrying capacity of major roads in the city is exposed to the following hazards?
 RA02,RA02QS005,RA02QS005Q003,RA02QS005Q003S01,What proportion of carrying capacity of major roads to and from the city is exposed to the following hazards?
 RA02,RA02QS006,RA02QS006Q001,RA02QS006Q001S01,What proportion of the rail and metro lines in the city is exposed to the following hazards?
-RA02,RA02QS006,RA02QS006Q001,RA02QS006Q002S01,What proportion of carrying capacity of all rail and metro lines in the city is exposed to the following hazards?
-RA02,RA02QS006,RA02QS006Q001,RA02QS006Q003S01,What proportion of carrying capacity of all rail links to and from the city is exposed to the following hazards?
+RA02,RA02QS006,RA02QS006Q002,RA02QS006Q002S01,What proportion of carrying capacity of all rail and metro lines in the city is exposed to the following hazards?
+RA02,RA02QS006,RA02QS006Q003,RA02QS006Q003S01,What proportion of carrying capacity of all rail links to and from the city is exposed to the following hazards?
 RA02,RA02QS007,RA02QS007Q001,RA02QS007Q001S01,What proportion of carrying capacity of airline connections to and from the city is exposed to the following hazards?
-RA02,RA02QS008,RA02QS0071002,RA02QS008Q002S01,What proportion of carrying capacity of shipping connections to and from the city is exposed to the following hazards?
+RA02,RA02QS008,RA02QS007Q002,RA02QS008Q002S01,What proportion of carrying capacity of shipping connections to and from the city is exposed to the following hazards?
 RA02,RA02QS009,RA02QS009Q001,RA02QS009Q001S01,What proportion of prison systems is exposed to the following hazards?
 RA02,RA02QS009,RA02QS009Q002,RA02QS009Q002S02,What proportion of other critical law and order assets is exposed to the following hazards?
 RA02,RA02QS010,RA02QS010Q001,RA02QS010Q001S01,What proportion of the major food and distribution stations in the city and its surrounding area is exposed to the following hazards?
@@ -41,3 +41,5 @@ RA03,RA03QS012,RA03QS012Q001,RA03QS012Q001S01,To what degree of hazard intensity
 RA03,RA03QS013,RA03QS013Q001,RA03QS013Q001S01,To what degree of hazard intensity can the education structures in the city remain functional?
 RA03,RA03QS014,RA03QS014Q001,RA03QS014Q001S01,To what degree of hazard intensity can the primary healthcare service in the city remain functional?
 RA03,RA03QS014,RA03QS014Q002,RA03QS014Q002S02,To what degree of hazard intensity can the emergency healthcare service in the city remain functional?
+RA04,RA04QS032,RA04QS032Q001,RA04QS032Q001S01,Does the occurrence of A have a negative impact on the occurrence of B in the city?
+RA04,RA04QS033,RA04QS033Q001,RA04QS033Q001S01,Is climate change likely to have a positive impact on the occurrence of following hazards in the city?

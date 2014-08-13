@@ -199,31 +199,32 @@ class AssessmentHazardCausality(Common):
    assessment = django.db.models.ForeignKey(Assessment)
    hazard_occurrence = django.db.models.ForeignKey(Hazard, related_name='hazard_occurrence')
    hazard_impacted = django.db.models.ForeignKey(Hazard, related_name='hazard_impacted')
-   short_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True)
-   mid_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True)
-   long_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True)
+   short_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True, blank=True)
+   mid_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True, blank=True)
+   long_term_value = django.db.models.CharField(max_length=1,choices=VALUES,null=True, blank=True)
    mov = django.db.models.TextField(max_length=250,null=True,blank=True)
    values_meaning = django.db.models.TextField(max_length=250,null=True,blank=True)
 
+"""
 class RiskAssessmentCausalityQuestion(Common):
-   """
+   ""
    Represents Risk Assessment Causality Questions of an assessment
-   """
+   ""
    code = django.db.models.CharField(max_length=10)
 
 class RiskAssessmentCausalityQuestionStatement(Common):
-   """
+   ""
    Represents Risk Assessment Causality Question Statements of an assessment
-   """
+   ""
    ra_section = django.db.models.ForeignKey(RiskAssessmentSection)
    ra_causality_question = django.db.models.ForeignKey(RiskAssessmentCausalityQuestion)
    code = django.db.models.CharField(max_length=15)
    description = django.db.models.TextField(max_length=500)
 
 class AssessmentRACausalityQuestionStatement(Common):
-   """
+   ""
    Represents a causality question statement for an assessment
-   """
+   ""
    VALUES = (
       ('L', 'Low'),
       ('M', 'Medium'),
@@ -237,6 +238,7 @@ class AssessmentRACausalityQuestionStatement(Common):
    value = django.db.models.CharField(max_length=1,choices=VALUES,null=True)
    mov = django.db.models.TextField(max_length=250,null=True,blank=True)
    values_meaning = django.db.models.TextField(max_length=250,null=True,blank=True)
+"""
 
 class CapacityAssessmentSection(Common):
    """

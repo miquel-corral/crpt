@@ -6,7 +6,9 @@ from django.template import RequestContext, loader
 from django.core.urlresolvers import reverse
 from forms import AssessmentForm
 from models import Assessment, RiskAssessmentSection, CapacityAssessmentSection, AssessmentRAQuestionStatement, \
-    AssessmentCAYESNOStatement, AssessmentCAGenericStatement, Actor, RiskAssessmentQuestion, Hazard, RiskAssessmentQuestionset
+    AssessmentCAYESNOStatement, AssessmentCAGenericStatement, Actor, RiskAssessmentQuestion, Hazard, \
+    RiskAssessmentQuestionset, AssessmentHazardCausality, CapacityAssessmentQuestionSet, CapacityAssessmentQuestion, \
+    CapacityAssessmentStatement
 from django.shortcuts import render_to_response
 from django.forms.models import modelformset_factory
 from django.contrib.admin.widgets import AdminDateWidget
@@ -88,6 +90,7 @@ def getRASectionQuestions(request, ra_section_id, assessment_id):
     })
     return HttpResponse(template.render(context))
 
+
 def getCASubsectionQuestions(request, ca_section_id, ca_subsection_id, assessment_id):
     """
 
@@ -96,12 +99,18 @@ def getCASubsectionQuestions(request, ca_section_id, ca_subsection_id, assessmen
     :param assessment_id:
     :return:
     """
-    questions = AssessmentCAYESNOStatement.objects.all();
-    template = loader.get_template('crptapp/ca_questions.html')
-    context = RequestContext(request, {
-        'questions':questions
-    })
-    return HttpResponse(template.render(context))
+    assessment = Assessment.objects.get(pk=assessment_id)
+    ca_question_list = []
+    ca_questionset_list = CapacityAssessmentQuestionSet.objects.filter(ca_subsection_id=ca_subsection_id).order_by('ca_subsection','code')
+    for ca_questionset in ca_questionset_list:
+        ca_question_list.extend(CapacityAssessmentQuestion.objects.filter(ca_questionset=ca_questionset).order_by('ca_questionset','code'))
+    paginator = Paginator(ca_question_list, 25) # Show 25 items per page
+    page = request.GET.get('page')
+    try:
+        questions = paginator.page(page)
+    except:
+        questions = paginator.page(1)
+    return render_to_response('crptapp/ca_questions.html', {"questions": questions,"assessment":assessment})
 
 
 
@@ -149,6 +158,7 @@ def getRAQuestionStatements(request, ra_question_id, ra_section_id, assessment_i
     RAQuestionStatmentFormSet = modelformset_factory(AssessmentRAQuestionStatement,max_num=len(assessment.hazards.all()))
     #RAQuestionStatmentFormSet = modelformset_factory(AssessmentRAQuestionStatement,max_num=1)
     question_statement = AssessmentRAQuestionStatement.objects.get(pk=ra_question_id)
+    files_to_show = ('short_term_value','mid_term_value','long_term_value','mov')
 
     if request.method == 'POST':
         formset = RAQuestionStatmentFormSet(request.POST, request.FILES)
@@ -158,11 +168,11 @@ def getRAQuestionStatements(request, ra_question_id, ra_section_id, assessment_i
         else:
             if format(len(formset.errors) > 0):
                 num_errors = len(formset.errors[0])
-        set_ra_statements_hidden_fields(formset)
+        set_ra_statements_hidden_fields(formset, files_to_show)
     else:
         formset = RAQuestionStatmentFormSet(queryset=AssessmentRAQuestionStatement.objects.filter(ra_question=ra_question_id).order_by('hazard'))
-        set_ra_statements_hidden_fields(formset)
-        #set_ra_statements_readonly_fields(formset)
+        set_ra_statements_hidden_fields(formset, files_to_show)
+        set_ra_statements_readonly_fields(formset)
     formset.is_valid()
 
     return render_to_response("crptapp/ra_question_detail.html", {
@@ -171,8 +181,34 @@ def getRAQuestionStatements(request, ra_question_id, ra_section_id, assessment_i
     }, context_instance=RequestContext(request))
 
 
-def set_ra_statements_hidden_fields(formset):
+def getCausalityMatrixQuestions(request, assessment_id, ra_question_id):
+    assessment = Assessment.objects.get(pk=assessment_id)
+    CausalityMatrixFormSet = modelformset_factory(AssessmentHazardCausality,max_num=len(assessment.hazards.all()))
+    ra_question = RiskAssessmentQuestion.objects.get(pk=ra_question_id)
     files_to_show = ('short_term_value','mid_term_value','long_term_value','mov')
+
+    if request.method == 'POST':
+        formset = CausalityMatrixFormSet(request.POST, request.FILES)
+        if formset.is_valid():
+            formset.save()
+            return render_to_response("crptapp/index.html", {'assessment_list':Assessment.objects.all()})
+        else:
+            if format(len(formset.errors) > 0):
+                num_errors = len(formset.errors[0])
+        set_ra_statements_hidden_fields(formset, files_to_show)
+    else:
+        formset = CausalityMatrixFormSet(queryset=AssessmentHazardCausality.objects.filter(assessment=assessment_id).order_by('hazard_occurrence'))
+        set_ra_statements_hidden_fields(formset, files_to_show)
+        #set_ra_statements_readonly_fields(formset)
+    formset.is_valid()
+
+    return render_to_response("crptapp/ra_causality_question_detail.html", {
+    "formset": formset,
+    "description":ra_question.description
+    }, context_instance=RequestContext(request))
+
+def set_ra_statements_hidden_fields(formset, files_to_show):
+    #files_to_show = ('short_term_value','mid_term_value','long_term_value','mov')
     for form in formset:
         for field in form.fields:
             if not any(field in s for s in files_to_show):
@@ -186,3 +222,4 @@ def set_ra_statements_readonly_fields(formset):
             if any(field in s for s in read_only_fields):
                 print(field)
                 form.fields[field].widget.attrs['disabled'] = True
+

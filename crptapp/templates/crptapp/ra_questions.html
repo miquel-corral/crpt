@@ -26,13 +26,18 @@
         {% for question in questions %}
             <tr class="assessment-{{ assessment.object_name|lower }}">
 
-               <!-- <th scope="row"><a href="" onClick="toggleClassElements('{{ assessment.name }}');return false;">{{ question.name }}</a></th> -->
-                <th scope="row"><a href="{% url 'crptapp:ra_section_question_statements' ra_question_id=question.id ra_section_id=question.ra_questionset.ra_section.id assessment_id=assessment.id  %}">{{ question.description }}</a></th>
+                {% if question.code == "RA04QS033Q001"%}
+                    <th scope="row"><a href="{% url 'crptapp:ra_causality_matrix_questions' assessment_id=assessment.id  ra_question_id=question.id %}">{{ question.description }}</a></th>
+                    <td>&nbsp;</td>
+                    <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td>&nbsp;</td>
+                {% else %}
+                    <th scope="row"><a href="{% url 'crptapp:ra_section_question_statements' ra_question_id=question.id ra_section_id=question.ra_questionset.ra_section.id assessment_id=assessment.id  %}">{{ question.description }}</a></th>
+                    <td>&nbsp;</td>
+                    <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td>&nbsp;</td>
+                {% endif%}
 
-
-                <td>&nbsp;</td>
-                <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
-                <td>&nbsp;</td>
             </tr>
             <!--
             {% for ra_section in ra_sections %}

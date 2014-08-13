@@ -11,7 +11,6 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'crpt.settings'
 from crptapp.models import City, Responder, HazardCategory, Hazard, SpatialUnitType, \
     Actor, Role, Assessment, ActorRole, RiskAssessmentSection, RiskAssessmentQuestionStatement, \
     RiskAssessmentQuestion, AssessmentRAQuestionStatement, AssessmentHazardCausality, \
-    RiskAssessmentCausalityQuestion, RiskAssessmentCausalityQuestionStatement, AssessmentRACausalityQuestionStatement,\
     CapacityAssessmentSection, CapacityAssessmentSubsection,  \
     CapacityAssessmentQuestionSet, CapacityAssessmentQuestion, CapacityAssessmentStatement,  \
     AssessmentCAYESNOStatement, AssessmentCAEffectivenessStatement, AssessmentCAMeetingAttendanceStatement, \
@@ -24,7 +23,7 @@ def setup():
     create_assessments_actor_roles()
     create_assessments_ra_question_statements()
     create_assessments_ra_causality_hazard_matrix()
-    create_assessments_ra_causality_question_statements()
+    #create_assessments_ra_causality_question_statements()
     create_assessment_ca_statements()
 
 
@@ -47,6 +46,7 @@ def loadfiles():
    load_ca_assessment_questions(settings.BASE_DIR + "/crpt/files/response_and_recovery_capacity_questions.csv", False)
    load_ca_assessment_questions(settings.BASE_DIR + "/crpt/files/response_and_recovery_capacity_blocks_by_hazard.csv", True)
    load_ca_assessment_questions(settings.BASE_DIR + "/crpt/files/monitoring_and_evaluation_capacity_questions.csv", False)
+
 
 def create_assessment_ca_statements():
     print("create_assessment_ca_statements. Start.")
@@ -203,6 +203,7 @@ def create_assessments_ra_causality_hazard_matrix():
 
    print("Create Causality Hazard Matrix for Assessments. End")
 
+"""
 def create_assessments_ra_causality_question_statements():
     print("Create RACausalityQuestionStatments for Assessments. Start.")
     for assessment in Assessment.objects.all():
@@ -218,20 +219,22 @@ def create_assessments_ra_causality_question_statements():
               assessment_ra_causality_question_statement.save()
 
     print("Create RACausalityQuestionStatments for Assessments. End.")
+"""
 
 def create_assessments_ra_question_statements():
     print("Create RAQuestionStatments for Assessments. Start")
     for assessment in Assessment.objects.all():
         for hazard in assessment.hazards.all():
             for ra_question_statement in RiskAssessmentQuestionStatement.objects.all():
-                 assessment_ra_question_statement = AssessmentRAQuestionStatement()
-                 assessment_ra_question_statement.name = assessment.name + "-" + ra_question_statement.code + "-" + hazard.name
-                 print("Creating asessment_question_statement:" + assessment_ra_question_statement.name)
-                 assessment_ra_question_statement.assessment = assessment
-                 assessment_ra_question_statement.hazard = hazard
-                 assessment_ra_question_statement.ra_question_statement = ra_question_statement
-                 assessment_ra_question_statement.ra_question = ra_question_statement.ra_question
-                 assessment_ra_question_statement.save()
+                 if ra_question_statement.code != "RA04QS033Q001S01": # Avoid question that links to causality matrix
+                    assessment_ra_question_statement = AssessmentRAQuestionStatement()
+                    assessment_ra_question_statement.name = assessment.name + "-" + ra_question_statement.code + "-" + hazard.name
+                    print("Creating asessment_question_statement:" + assessment_ra_question_statement.name)
+                    assessment_ra_question_statement.assessment = assessment
+                    assessment_ra_question_statement.hazard = hazard
+                    assessment_ra_question_statement.ra_question_statement = ra_question_statement
+                    assessment_ra_question_statement.ra_question = ra_question_statement.ra_question
+                    assessment_ra_question_statement.save()
 
     print("Create RAQuestionStatments for Assessments. End")
 
@@ -292,6 +295,7 @@ def load_ca_assessment_questions(file_path, is_block_by_hazard):
           ca_question = CapacityAssessmentQuestion()
           ca_question.code = row[3].strip()
           ca_question.name = ca_question.code
+          ca_question.description = row[6].strip()
           ca_question.ca_questionset = ca_questionset
           print("Saving question: " + ca_question.code)
           ca_question.save()
@@ -335,7 +339,7 @@ def loadCASubsections(file_path):
    print("Loading CASubsections: " + file_path + ". End.")
 
 
-
+"""
 def loadRACausalityQuestionStatements(file_path):
    print("Loading RACausalityQuestionStatements: " + file_path + ". Start.")
    print("")
@@ -366,6 +370,7 @@ def loadRACausalityQuestionStatements(file_path):
       ra_causality_question_statement.save()
    print("")
    print("Loading RACausalityQuestionStatements: " + file_path + ". End.")
+"""
 
 def loadRAQuestionStatements(file_path):
    print("Loading RAQuestionStatements: " + file_path + ". Start.")
