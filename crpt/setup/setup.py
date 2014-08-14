@@ -13,8 +13,8 @@ from crptapp.models import City, Responder, HazardCategory, Hazard, SpatialUnitT
     RiskAssessmentQuestion, AssessmentRAQuestionStatement, AssessmentHazardCausality, \
     CapacityAssessmentSection, CapacityAssessmentSubsection,  \
     CapacityAssessmentQuestionSet, CapacityAssessmentQuestion, CapacityAssessmentStatement,  \
-    AssessmentCAYESNOStatement, AssessmentCAEffectivenessStatement, AssessmentCAMeetingAttendanceStatement, \
-    AssessmentCAMeetingFrequencyStatement, RiskAssessmentQuestionset
+    RiskAssessmentQuestionset, AssessmentCAQuestionStatement
+
 
 
 def setup():
@@ -74,6 +74,26 @@ def create_assessment_ca_statements():
 
     print("create_assessment_ca_statements. End.")
 
+def create_ca_assessment_statement(assessment, ca_statement, hazard):
+    print("create_ca_assessment_statement. Start")
+    assessment_ca_statement = AssessmentCAQuestionStatement()
+    name = assessment.name
+    if(hazard):
+        name = name + "-" + hazard.name
+    name = name + "-" + ca_statement.code
+    print("Creating assessment_ca_statement: " + name)
+    assessment_ca_statement.name = name
+    assessment_ca_statement.assessment = assessment
+    assessment_ca_statement.ca_section = ca_statement.ca_question.ca_questionset.ca_subsection.ca_section
+    assessment_ca_statement.ca_subsection = ca_statement.ca_question.ca_questionset.ca_subsection
+    assessment_ca_statement.ca_questionset = ca_statement.ca_question.ca_questionset
+    assessment_ca_statement.ca_question = ca_statement.ca_question
+    assessment_ca_statement.ca_statement = ca_statement
+    if(hazard):
+        assessment_ca_statement.hazard = hazard
+    assessment_ca_statement.save()
+
+    print("create_ca_assessment_statement. End")
 
 def create_block_by_hazard(assessment, hazard, ca_questionset):
     print("create_block_by_hazard. Start.")
@@ -84,7 +104,7 @@ def create_block_by_hazard(assessment, hazard, ca_questionset):
 
     print("create_block_by_hazard. End.")
 
-
+"""
 def  create_ca_assessment_statement(assessment, ca_statement, hazard):
     print("create_ca_assessment_statement. Start")
     if(ca_statement.statement_type=='YNS' or ca_statement.statement_type=='YNH'):
@@ -101,6 +121,7 @@ def  create_ca_assessment_statement(assessment, ca_statement, hazard):
         print("statement type not found: " + ca_statement.statement_type)
 
     print("create_ca_assessment_statement. End")
+
 
 def create_ca_assessment_meetingattendance_statement(assessment, ca_statement, hazard):
     print("create_ca_assessment_meetingattendance_statement. Start")
@@ -185,6 +206,7 @@ def create_ca_assesment_yesno_statement(assessment, ca_statement, hazard):
     assessment_ca_statement.save()
 
     print("create_ca_assesment_yesnosimple. End")
+"""
 
 
 def create_assessments_ra_causality_hazard_matrix():
@@ -297,11 +319,15 @@ def load_ca_assessment_questions(file_path, is_block_by_hazard):
           ca_question.name = ca_question.code
           ca_question.description = row[6].strip()
           ca_question.ca_questionset = ca_questionset
+          if(is_block_by_hazard==True):
+              ca_question.is_by_hazard = True
           print("Saving question: " + ca_question.code)
           ca_question.save()
+       ca_statement.ca_question = ca_question
        if(is_block_by_hazard==False and 'H' in row[5].strip()):
            ca_statement.is_by_hazard = True
-       ca_statement.ca_question = ca_question
+           ca_statement.ca_question.is_by_hazard = True
+           ca_statement.ca_question.save()
        ca_statement.statement_type = row[5].strip()
        print("Description: " + row[6].strip())
        ca_statement.description = row[6].strip()

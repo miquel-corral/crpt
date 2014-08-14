@@ -269,6 +269,7 @@ class CapacityAssessmentQuestion(Common):
    code = django.db.models.CharField(max_length=15)
    description = django.db.models.TextField(max_length=500)
    ca_questionset = django.db.models.ForeignKey(CapacityAssessmentQuestionSet)
+   is_by_hazard = django.db.models.BooleanField(default=False)
 
 
 class CapacityAssessmentStatement(Common):
@@ -291,10 +292,31 @@ class CapacityAssessmentStatement(Common):
    statement_type = django.db.models.CharField(max_length=1,choices=STATEMENT_TYPES,null=True)
    is_by_hazard = django.db.models.BooleanField(default=False)
 
-class AssessmentCAYESNOStatement(Common):
+class ValueListType():
+    value_class = django.db.TextField(max_lengt=10)
+
+class AssessmentCAQuestionStatement(Common):
     """
 
     """
+    VALUES = (
+      ('Y', 'Yes'),
+      ('N', 'No'),
+    )
+    assessment = django.db.models.ForeignKey(Assessment)
+    hazard = django.db.models.ForeignKey(Hazard,blank=True,null=True)
+    ca_section = django.db.models.ForeignKey(CapacityAssessmentSection)
+    ca_subsection = django.db.models.ForeignKey(CapacityAssessmentSubsection)
+    ca_questionset = django.db.models.ForeignKey(CapacityAssessmentQuestionSet)
+    ca_question = django.db.models.ForeignKey(CapacityAssessmentQuestion)
+    ca_statement = django.db.models.ForeignKey(CapacityAssessmentStatement)
+    value = django.db.models.CharField(max_length=1,choices=VALUES,null=True,blank=True)
+    mov = django.db.models.TextField(max_length=250,null=True,blank=True)
+    value_list_type = django.db.models.ForeignKey(ValueListType)
+
+"""
+class AssessmentCAYESNOStatement(Common):
+
     VALUES = (
       ('Y', 'Yes'),
       ('N', 'No'),
@@ -310,9 +332,6 @@ class AssessmentCAYESNOStatement(Common):
     mov = django.db.models.TextField(max_length=250,null=True,blank=True)
 
 class AssessmentCAEffectivenessStatement(Common):
-    """
-
-    """
     VALUES = (
       ('100%', '100%'),
       ('75-99%', '75-99%'),
@@ -332,9 +351,6 @@ class AssessmentCAEffectivenessStatement(Common):
     mov = django.db.models.TextField(max_length=250,null=True,blank=True)
 
 class AssessmentCAMeetingFrequencyStatement(Common):
-    """
-
-    """
     VALUES = (
       ('0', 'No meetings'),
       ('1', 'Ad Hoc'),
@@ -354,9 +370,7 @@ class AssessmentCAMeetingFrequencyStatement(Common):
     mov = django.db.models.TextField(max_length=250,null=True,blank=True)
 
 class AssessmentCAMeetingAttendanceStatement(Common):
-    """
 
-    """
     VALUES = (
       ('100%', '100% of formal role-holders in regular attendance'),
       ('75%', '75% of formal role-holders in regular attendance'),
@@ -375,9 +389,7 @@ class AssessmentCAMeetingAttendanceStatement(Common):
     mov = django.db.models.TextField(max_length=250,null=True,blank=True)
 
 class AssessmentCAGenericStatement(Common):
-    """
 
-    """
     YESNO = (
       ('Y', 'Yes'),
       ('N', 'No'),
@@ -428,3 +440,4 @@ class AssessmentCAGenericStatement(Common):
     ca_statement = django.db.models.ForeignKey(CapacityAssessmentStatement)
     value = django.db.models.CharField(max_length=2,choices=VALUES,null=True)
     mov = django.db.models.TextField(max_length=250,null=True,blank=True)
+"""

@@ -1,0 +1,66 @@
+{% extends "crptapp/base_site.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "crptapp/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+{% if questions %}
+    <div class="module">
+        <table>
+        <caption>
+            <div class="section" style="float:left;">Capacity Assessment questions: {{ ca_subsection_id }}</div>
+            <div style="float:right;padding-right:18px;"><a href="" class="addlinktoplist" style="color:white;">{% trans 'Add' %}</a></div>
+        </caption>
+
+
+        {% for question in questions %}
+            <tr class="assessment-{{ assessment.object_name|lower }}">
+
+                <th scope="row">&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'crptapp:ca_statement_detail_by_id' statement_id=question.id %}">{{ question.ca_statement.description }}</a></th>
+                <td>&nbsp;</td>
+                <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                <td>&nbsp;</td>
+
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+<!-- <div class="submit-row" style="text-align:right;"> -->
+<p class="paginator">
+
+        {% if questions.has_previous %}
+        <span class="">
+            <a href="?page={{ questions.previous_page_number }}"> Previous </a>
+        </span>
+        {% endif %}
+
+        <span class="this-page">
+            Page {{ questions.number }} of {{ questions.paginator.num_pages }}.
+        </span>
+
+        {% if questions.has_next %}
+        <span class="">
+            <a href="?page={{ questions.next_page_number }}"> Next </a>
+        </span>
+        {% endif %}
+    </span>
+</p>
+<!-- </div> -->
+
+{% else %}
+    <p>{% trans "You have no questions created." %}</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+
+{% endblock %}

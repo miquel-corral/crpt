@@ -23,9 +23,11 @@ admin.site.register(crptapp.models.CapacityAssessmentSubsection)
 admin.site.register(crptapp.models.CapacityAssessmentQuestionSet)
 admin.site.register(crptapp.models.CapacityAssessmentQuestion)
 admin.site.register(crptapp.models.CapacityAssessmentStatement)
+"""
 admin.site.register(crptapp.models.AssessmentCAYESNOStatement)
 admin.site.register(crptapp.models.AssessmentCAEffectivenessStatement)
 admin.site.register(crptapp.models.AssessmentCAMeetingFrequencyStatement)
 admin.site.register(crptapp.models.AssessmentCAMeetingAttendanceStatement)
 admin.site.register(crptapp.models.AssessmentCAGenericStatement)
-
+"""
+admin.site.register(crptapp.models.AssessmentCAQuestionStatement)

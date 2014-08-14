@@ -91,10 +91,12 @@
                     {% endcomment %}
 
                     {% if field.name == 'hazard' %}
+                        {% if field.value %}
                         <span class="required"><label>
                         {% load selected_option_text%}
                         {% selected_option_text field field.value %}
                         </label></span>
+                        {% endif %}
                         <!-- para incluirlo en form, excluido en bucle de los hidden inicial -->
                         {{field}}
                     {% else %}
