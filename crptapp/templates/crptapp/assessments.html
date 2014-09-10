@@ -12,21 +12,12 @@
 {% block content %}
 <div id="content-main">
 
-
-
-
-         <caption>
-            <div class="section" style="float:left;">TEST CAGenericStatement:</div>
-            <div style="float:right;padding-right:18px;"><a href="{% url 'crptapp:ca_generic_statement_detail' statement_id=1 %}" class="addlinktoplist" style="color:white;">{% trans 'GO' %}</a></div>
-        </caption>
-        <br>
-
 {% if assessments %}
     <div class="module">
         <table>
         <caption>
             <div class="section" style="float:left;">Assessments for user:  {{ user }}</div>
-            <div style="float:right;padding-right:18px;"><a href="{% url 'crptapp:assessment_detail' assessment_id=0 assessment_name='New Assessment' %}" class="addlinktoplist" style="color:white;">{% trans 'Add' %}</a></div>
+            <div style="float:right;padding-right:18px;"><a href="{% url 'crptapp:assessment_detail' assessment_id=0 assessment_name='New Assessment' %}" class="addlinktoplist" style="color:white;">{% trans 'New' %}</a></div>
         </caption>
 
 

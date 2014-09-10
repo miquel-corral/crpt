@@ -10,4 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^crpt/', include('crptapp.urls', namespace="crptapp")),
+    # To use default authentication system view
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login',
+        {'template_name': 'admin/login.html'},name="my_login"),
 )

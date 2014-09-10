@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-09 14:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/pagination.html:10
+msgid "Show all"
+msgstr ""
+
+#: templates/pagination.html:11
+msgid "Save"
+msgstr ""
+
+#: templates/crptapp/assessment_detail.html:14
+#: templates/crptapp/ca_questions.html:14
+#: templates/crptapp/ca_questions_by_hazard.html:14
+#: templates/crptapp/question_detail.html:14
+#: templates/crptapp/ra_causality_question_detail.html:14
+#: templates/crptapp/ra_questions.html:16
+msgid "Assessments"
+msgstr ""
+
+#: templates/crptapp/assessment_detail.html:36
+#: templates/crptapp/change_form.html:55
+#: templates/crptapp/question_detail.html:46
+#: templates/crptapp/ra_causality_question_detail.html:36
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/crptapp/assessment_detail.html:36
+#: templates/crptapp/change_form.html:55
+#: templates/crptapp/question_detail.html:46
+#: templates/crptapp/ra_causality_question_detail.html:36
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/crptapp/assessments.html:20
+msgid "New"
+msgstr ""
+
+#: templates/crptapp/assessments.html:30 templates/crptapp/assessments.html:38
+#: templates/crptapp/assessments.html:55
+#: templates/crptapp/ca_questions.html:45
+#: templates/crptapp/ca_questions.html:64
+#: templates/crptapp/ca_questions_by_hazard.html:40
+#: templates/crptapp/ra_questions.html:41
+#: templates/crptapp/ra_questions.html:46
+msgid "Edit"
+msgstr "Answer"
+
+#: templates/crptapp/assessments.html:108
+msgid "You have no assessments created."
+msgstr ""
+
+#: templates/crptapp/base.html:66
+msgid "Welcome,"
+msgstr ""
+
+#: templates/crptapp/base.html:69
+msgid "Log out"
+msgstr ""
+
+#: templates/crptapp/base.html:78
+msgid "Home"
+msgstr ""
+
+#: templates/crptapp/base_site.html:4 templates/crptapp/base_site.html.py:7
+msgid "City Resilience Profiling Tool"
+msgstr ""
+
+#: templates/crptapp/ca_questions.html:95
+#: templates/crptapp/ca_questions_by_hazard.html:70
+#: templates/crptapp/ra_questions.html:78
+msgid "You have no questions created."
+msgstr ""
+
+#: templatetags/admin_list.py:350
+msgid "All dates"
+msgstr ""

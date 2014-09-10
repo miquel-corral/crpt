@@ -7,13 +7,19 @@ project_path = "/Users/miquel/UN/03-CRPTWeb/crpt/"
 sys.path.append(project_path)
 os.environ['DJANGO_SETTINGS_MODULE'] = 'crpt.settings'
 
+from django.contrib.auth.models import Group, Permission, User
+from django.contrib.contenttypes.models import ContentType
 
-from crptapp.models import City, Responder, HazardCategory, Hazard, SpatialUnitType, \
-    Actor, Role, Assessment, ActorRole, RiskAssessmentSection, RiskAssessmentQuestionStatement, \
-    RiskAssessmentQuestion, AssessmentRAQuestionStatement, AssessmentHazardCausality, \
-    CapacityAssessmentSection, CapacityAssessmentSubsection,  \
-    CapacityAssessmentQuestionSet, CapacityAssessmentQuestion, CapacityAssessmentStatement,  \
-    RiskAssessmentQuestionset, AssessmentCAQuestionStatement
+from crptapp.models import City, Responder, HazardCategory, Hazard, \
+    SpatialUnitType, Actor, Role, Assessment, ActorRole, \
+    RiskAssessmentSection, RiskAssessmentQuestionStatement, \
+    RiskAssessmentQuestion, AssessmentRAQuestionStatement, \
+    AssessmentHazardCausality, CapacityAssessmentSection, \
+    CapacityAssessmentSubsection, CapacityAssessmentQuestionSet, \
+    CapacityAssessmentQuestion, CapacityAssessmentStatement,  \
+    RiskAssessmentQuestionset, AssessmentCAQuestionStatement, YesNoValues, \
+    LowMidHighValues, MeetingAttendanceValues, MeetingFrequencyValues, \
+    MaxValues, EffectivenessValues
 
 
 
@@ -23,11 +29,39 @@ def setup():
     create_assessments_actor_roles()
     create_assessments_ra_question_statements()
     create_assessments_ra_causality_hazard_matrix()
-    #create_assessments_ra_causality_question_statements()
     create_assessment_ca_statements()
+    create_user_group_and_set_permissions()
+
+def create_user_group_and_set_permissions():
+
+    new_group = Group.objects.create(name='crpt_users')
+    permission = Permission.objects.get(name='Can change assessment ca '
+                                            'question statement')
+    new_group.permissions.add(permission)
+    permission = Permission.objects.get(name='Can change assessment ra '
+                                            'question statement')
+    new_group.permissions.add(permission)
+
+    user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
+    user.last_name = 'lennon'
+    user.groups.add(new_group)
+    user.save()
 
 
 def loadfiles():
+   load_values(settings.BASE_DIR + "/crpt/files/yes_no_values.csv",
+               YesNoValues)
+   load_values(settings.BASE_DIR + "/crpt/files/low_mid_high_values.csv",
+               LowMidHighValues)
+   load_values(settings.BASE_DIR +
+               "/crpt/files/meeting_frequency_values.csv",
+               MeetingFrequencyValues)
+   load_values(settings.BASE_DIR +
+               "/crpt/files/meeting_attendance_values.csv",
+               MeetingAttendanceValues)
+   load_values(settings.BASE_DIR +
+                "/crpt/files/effectiveness_values.csv", EffectivenessValues)
+   load_values(settings.BASE_DIR + "/crpt/files/max_values.csv", MaxValues)
    loadCities(settings.BASE_DIR + "/crpt/files/cities.csv")
    loadResponders(settings.BASE_DIR + "/crpt/files/responders.csv")
    loadHazardCategories(settings.BASE_DIR + "/crpt/files/hazard_categories.csv")
@@ -47,6 +81,20 @@ def loadfiles():
    load_ca_assessment_questions(settings.BASE_DIR + "/crpt/files/response_and_recovery_capacity_blocks_by_hazard.csv", True)
    load_ca_assessment_questions(settings.BASE_DIR + "/crpt/files/monitoring_and_evaluation_capacity_questions.csv", False)
 
+def load_values(file_path, myclass):
+    print("load_values. File: " + file_path + " Start.")
+    dataReader = csv.reader(open(file_path), delimiter=',', quotechar='"')
+    for row in dataReader:
+       value = myclass()
+       value.name = row[1].strip()
+       value.id = row[0].strip()
+       try:
+            value.save()
+       except:
+           print("Saving value: " + row[1].strip())
+           print "Unexpected error:", sys.exc_info()
+
+    print("load_values. End.")
 
 def create_assessment_ca_statements():
     print("create_assessment_ca_statements. Start.")
@@ -104,109 +152,6 @@ def create_block_by_hazard(assessment, hazard, ca_questionset):
 
     print("create_block_by_hazard. End.")
 
-"""
-def  create_ca_assessment_statement(assessment, ca_statement, hazard):
-    print("create_ca_assessment_statement. Start")
-    if(ca_statement.statement_type=='YNS' or ca_statement.statement_type=='YNH'):
-       create_ca_assesment_yesno_statement(assessment, ca_statement, hazard)
-       pass
-    elif(ca_statement.statement_type=='EFH' or ca_statement.statement_type=='EFS'):
-       create_ca_assessment_effectiveness_statement(assessment, ca_statement, hazard)
-       pass
-    elif(ca_statement.statement_type=='MFH' or ca_statement.statement_type=='MFS'):
-        create_ca_assessment_meetingfrequency_statement(assessment, ca_statement, hazard)
-    elif(ca_statement.statement_type=='MAH' or ca_statement.statement_type=='MAS'):
-        create_ca_assessment_meetingattendance_statement(assessment, ca_statement, hazard)
-    else:
-        print("statement type not found: " + ca_statement.statement_type)
-
-    print("create_ca_assessment_statement. End")
-
-
-def create_ca_assessment_meetingattendance_statement(assessment, ca_statement, hazard):
-    print("create_ca_assessment_meetingattendance_statement. Start")
-    assessment_ca_statement = AssessmentCAMeetingAttendanceStatement()
-    name = assessment.name
-    if(hazard):
-        name = name + "-" + hazard.name
-    name = name + "-" + ca_statement.code
-    print("Creating assessment_ca_statement: " + name)
-    assessment_ca_statement.name = name
-    assessment_ca_statement.assessment = assessment
-    assessment_ca_statement.ca_section = ca_statement.ca_question.ca_questionset.ca_subsection.ca_section
-    assessment_ca_statement.ca_subsection = ca_statement.ca_question.ca_questionset.ca_subsection
-    assessment_ca_statement.ca_questionset = ca_statement.ca_question.ca_questionset
-    assessment_ca_statement.ca_question = ca_statement.ca_question
-    assessment_ca_statement.ca_statement = ca_statement
-    if(hazard):
-        assessment_ca_statement.hazard = hazard
-    assessment_ca_statement.save()
-
-    print("create_ca_assessment_meetingattendance_statement. End")
-
-def create_ca_assessment_meetingfrequency_statement(assessment, ca_statement, hazard):
-    print("create_ca_assessment_meetingfrequency_statement. Start")
-    assessment_ca_statement = AssessmentCAMeetingFrequencyStatement()
-    name = assessment.name
-    if(hazard):
-        name = name + "-" + hazard.name
-    name = name + "-" + ca_statement.code
-    print("Creating assessment_ca_statement: " + name)
-    assessment_ca_statement.name = name
-    assessment_ca_statement.assessment = assessment
-    assessment_ca_statement.ca_section = ca_statement.ca_question.ca_questionset.ca_subsection.ca_section
-    assessment_ca_statement.ca_subsection = ca_statement.ca_question.ca_questionset.ca_subsection
-    assessment_ca_statement.ca_questionset = ca_statement.ca_question.ca_questionset
-    assessment_ca_statement.ca_question = ca_statement.ca_question
-    assessment_ca_statement.ca_statement = ca_statement
-    if(hazard):
-        assessment_ca_statement.hazard = hazard
-    assessment_ca_statement.save()
-
-    print("create_ca_assessment_meetingfrequency_statement. End")
-
-def create_ca_assessment_effectiveness_statement(assessment, ca_statement, hazard):
-    print("create_ca_assessment_effectiveness_statement. Start")
-    assessment_ca_statement = AssessmentCAEffectivenessStatement()
-    name = assessment.name
-    if(hazard):
-        name = name + "-" + hazard.name
-    name = name + "-" + ca_statement.code
-    print("Creating assessment_ca_statement: " + name)
-    assessment_ca_statement.name = name
-    assessment_ca_statement.assessment = assessment
-    assessment_ca_statement.ca_section = ca_statement.ca_question.ca_questionset.ca_subsection.ca_section
-    assessment_ca_statement.ca_subsection = ca_statement.ca_question.ca_questionset.ca_subsection
-    assessment_ca_statement.ca_questionset = ca_statement.ca_question.ca_questionset
-    assessment_ca_statement.ca_question = ca_statement.ca_question
-    assessment_ca_statement.ca_statement = ca_statement
-    if(hazard):
-        assessment_ca_statement.hazard = hazard
-    assessment_ca_statement.save()
-
-    print("create_ca_assessment_effectiveness_statement. End")
-
-def create_ca_assesment_yesno_statement(assessment, ca_statement, hazard):
-    print("create_ca_assesment_yesnosimple. Start")
-    assessment_ca_statement = AssessmentCAYESNOStatement()
-    name = assessment.name
-    if(hazard):
-        name = name + "-" + hazard.name
-    name = name + "-" + ca_statement.code
-    print("Creating assessment_ca_statement: " + name)
-    assessment_ca_statement.name = name
-    assessment_ca_statement.assessment = assessment
-    assessment_ca_statement.ca_section = ca_statement.ca_question.ca_questionset.ca_subsection.ca_section
-    assessment_ca_statement.ca_subsection = ca_statement.ca_question.ca_questionset.ca_subsection
-    assessment_ca_statement.ca_questionset = ca_statement.ca_question.ca_questionset
-    assessment_ca_statement.ca_question = ca_statement.ca_question
-    assessment_ca_statement.ca_statement = ca_statement
-    if(hazard):
-        assessment_ca_statement.hazard = hazard
-    assessment_ca_statement.save()
-
-    print("create_ca_assesment_yesnosimple. End")
-"""
 
 
 def create_assessments_ra_causality_hazard_matrix():
@@ -225,30 +170,13 @@ def create_assessments_ra_causality_hazard_matrix():
 
    print("Create Causality Hazard Matrix for Assessments. End")
 
-"""
-def create_assessments_ra_causality_question_statements():
-    print("Create RACausalityQuestionStatments for Assessments. Start.")
-    for assessment in Assessment.objects.all():
-        for hazard in assessment.hazards.all():
-           for ra_causality_question_statement in RiskAssessmentCausalityQuestionStatement.objects.all():
-              assessment_ra_causality_question_statement = AssessmentRACausalityQuestionStatement()
-              assessment_ra_causality_question_statement.name = assessment.name + "-" + ra_causality_question_statement.name + "-" + hazard.name
-              assessment_ra_causality_question_statement.assessment = assessment
-              assessment_ra_causality_question_statement.hazard = hazard
-              assessment_ra_causality_question_statement.ra_section = ra_causality_question_statement.ra_section
-              assessment_ra_causality_question_statement.ra_causality_question = ra_causality_question_statement.ra_causality_question
-              assessment_ra_causality_question_statement.ra_causality_question_statement = ra_causality_question_statement
-              assessment_ra_causality_question_statement.save()
-
-    print("Create RACausalityQuestionStatments for Assessments. End.")
-"""
 
 def create_assessments_ra_question_statements():
     print("Create RAQuestionStatments for Assessments. Start")
     for assessment in Assessment.objects.all():
         for hazard in assessment.hazards.all():
             for ra_question_statement in RiskAssessmentQuestionStatement.objects.all():
-                 if ra_question_statement.code != "RA04QS033Q001S01": # Avoid question that links to causality matrix
+                 if ra_question_statement.code != "RA04QS032Q001S01": # Avoid question that links to causality matrix
                     assessment_ra_question_statement = AssessmentRAQuestionStatement()
                     assessment_ra_question_statement.name = assessment.name + "-" + ra_question_statement.code + "-" + hazard.name
                     print("Creating asessment_question_statement:" + assessment_ra_question_statement.name)
@@ -364,39 +292,6 @@ def loadCASubsections(file_path):
    print("")
    print("Loading CASubsections: " + file_path + ". End.")
 
-
-"""
-def loadRACausalityQuestionStatements(file_path):
-   print("Loading RACausalityQuestionStatements: " + file_path + ". Start.")
-   print("")
-   dataReader = csv.reader(open(file_path), delimiter=',', quotechar='"')
-   for row in dataReader:
-      print("Loading RACausalityQuestionStatements: "+ row[2])
-      try:
-         ra_section = RiskAssessmentSection.objects.get(code=row[0].strip())
-      except:
-         ra_section = RiskAssessmentSection()
-         ra_section.name = row[0].strip()
-         ra_section.code = ra_section.name
-         ra_section.save()
-      try:
-         ra_causality_question =  RiskAssessmentQuestion.objects.get(code=row[1].strip())
-      except:
-         ra_causality_question = RiskAssessmentCausalityQuestion()
-         ra_causality_question.code = row[1].strip()
-         ra_causality_question.name = ra_section.code + "-" + ra_causality_question.code
-         ra_causality_question.save()
-      ra_causality_question_statement = RiskAssessmentCausalityQuestionStatement()
-      ra_causality_question_statement.question_code = row[1].strip()
-      ra_causality_question_statement.code = row[2].strip()
-      ra_causality_question_statement.name = ra_causality_question_statement.code
-      ra_causality_question_statement.description = row[3].strip()
-      ra_causality_question_statement.ra_causality_question = ra_causality_question
-      ra_causality_question_statement.ra_section = ra_section
-      ra_causality_question_statement.save()
-   print("")
-   print("Loading RACausalityQuestionStatements: " + file_path + ". End.")
-"""
 
 def loadRAQuestionStatements(file_path):
    print("Loading RAQuestionStatements: " + file_path + ". Start.")

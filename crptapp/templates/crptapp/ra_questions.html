@@ -7,9 +7,18 @@
 
 {% block bodyclass %}dashboard{% endblock %}
 
-{% block breadcrumbs %}{% endblock %}
-
 {% load admin_list %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+
+<div class="breadcrumbs">
+<a href="{% url 'crptapp:index' %}">{% trans 'Assessments' %} </a> &rsaquo;
+<a href="{% url 'crptapp:index' %}">{{ assessment.name }} </a> &rsaquo;
+<a href="{% url 'crptapp:ra_section_questions' ra_section_id=ra_section.id assessment_id=assessment.id  %}">{{ra_section.name}}</a>
+</div>
+{% endblock %}
+{% endif %}
 
 {% block content %}
 <div id="content-main">
@@ -18,56 +27,27 @@
     <div class="module">
         <table>
          <caption>
-            <div class="section" style="float:left;">Risk Assessment Questions for user:  {{ user }}</div>
-            <div style="float:right;padding-right:18px;"><a href="" class="addlinktoplist" style="color:white;">{% trans 'Add' %}</a></div>
+            <div class="section" style="float:left;">{{assessment.name}} - {{ra_section.name}} questions </div>
+            <div style="float:right;padding-right:18px;"></div>
         </caption>
 
 
         {% for question in questions %}
             <tr class="assessment-{{ assessment.object_name|lower }}">
 
-                {% if question.code == "RA04QS033Q001"%}
+                {% if question.code == "RA04QS032Q001"%}
                     <th scope="row"><a href="{% url 'crptapp:ra_causality_matrix_questions' assessment_id=assessment.id  ra_question_id=question.id %}">{{ question.description }}</a></th>
                     <td>&nbsp;</td>
-                    <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td><a href="{% url 'crptapp:ra_causality_matrix_questions' assessment_id=assessment.id  ra_question_id=question.id %}" class="changelink">{% trans 'Edit' %}</a></td>
                     <td>&nbsp;</td>
                 {% else %}
                     <th scope="row"><a href="{% url 'crptapp:ra_section_question_statements' ra_question_id=question.id ra_section_id=question.ra_questionset.ra_section.id assessment_id=assessment.id  %}">{{ question.description }}</a></th>
                     <td>&nbsp;</td>
-                    <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
+                    <td><a href="{% url 'crptapp:ra_section_question_statements' ra_question_id=question.id ra_section_id=question.ra_questionset.ra_section.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
                     <td>&nbsp;</td>
                 {% endif%}
 
             </tr>
-            <!--
-            {% for ra_section in ra_sections %}
-                <tr class="{{ assessment.name }}" >
-                <th scope="row" class="ra_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="">{{ ra_section.name }}</a></th>
-                <td>&nbsp;</td>
-                <td><a href="{% url 'crptapp:ra_section_questions' ra_section_id=ra_section.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
-                <td>&nbsp;</td>
-                </tr>
-            {% endfor %}
-
-            {% for ca_section in ca_sections %}
-                <tr class="{{ assessment.name }}" >
-                <th scope="row" class="ca_section">&nbsp;&nbsp;&nbsp;&nbsp;<a href="" onclick="toggleClassElements('{{ assessment.name }}-{{ ca_section.name }}');return false;">{{ ca_section.name }}</a></th>
-                <td>&nbsp;</td>
-                <td><a href="" class="changelink">{% trans 'Edit' %}</a></td>
-                <td>&nbsp;</td>
-                </tr>
-                    {% for ca_subsection in ca_section.capacityassessmentsubsection_set.all %}
-                    <tr class="{{ assessment.name }} {{ assessment.name }}-{{ ca_section.name }}" >
-                    <th scope="row" class="ca_subsection">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}">{{ ca_subsection.name }}</a></th>
-                    <td>&nbsp;</td>
-                    <td><a href="{% url 'crptapp:ca_subsection_questions' ca_section_id=ca_section.id ca_subsection_id=ca_subsection.id assessment_id=assessment.id  %}" class="changelink">{% trans 'Edit' %}</a></td>
-                    <td>&nbsp;</td>
-                    </tr>
-                    {% endfor %}
-
-            {% endfor %}
-            -->
 
         {% endfor %}
         </table>

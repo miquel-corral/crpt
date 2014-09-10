@@ -12,3 +12,6 @@
 
 # exclude db.sqlite3
 db.sqlite3
+
+# ignore log files
+crptapp.log*
